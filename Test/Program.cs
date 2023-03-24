@@ -6,21 +6,20 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Fun1("ABDISUHC"));
-            Console.WriteLine(Fun2("ABDISUHC"));
-            Console.WriteLine(Fun3("aookka"));
+            Console.Write("Enter the string: ");
+            Console.WriteLine(RemoveOK(Console.ReadLine()));
         }
-        static string Fun3(string s)
+        static string RemoveOK(string s)
         {
             StringBuilder sb = new();
-            int l = s.Length;
             int k = 0;
             foreach(char c in s)
             {
                 if(c == 'o')
                 {
                     k++;
-                } else if(c == 'k')
+                }
+                else if(c == 'k')
                 {
                     if(k > 0)
                     {
@@ -32,20 +31,28 @@ namespace Test
                 }
                 else
                 {
+                    while(k > 0)
+                    {
+                        sb.Append('o');
+                        k--;
+                    }
                     sb.Append(c);
-                    k = 0;
                 }
             }
-            while (k > 0) sb.Append('o');
+            while (k > 0)
+            {
+                sb.Append('o');
+                k--;
+            }
             return sb.ToString();
         }
-        static string Fun2(string s)
+        static string AddLastChar(string s)
         {
             int l = s.Length;
             if (l == 0) return s;
             return s[l - 1] + s + s[l - 1];
         }
-        static string Fun1(string s)
+        static string SwapFirstAndLastChar(string s)
         {
             int l = s.Length;
             if (l < 2) return s;
