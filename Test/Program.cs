@@ -6,7 +6,13 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            Console.Write(Reverse("ABDISUHC"));
+            Console.Write(Fun2("ABDISUHC"));
+        }
+        static string Fun2(string s)
+        {
+            int l = s.Length;
+            if (l == 0) return s;
+            return s[l - 1] + s + s[l - 1];
         }
         static string Reverse(string s)
         {
