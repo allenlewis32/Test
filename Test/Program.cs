@@ -8,11 +8,36 @@ namespace Test
         {
             Console.WriteLine(Fun1("ABDISUHC"));
             Console.WriteLine(Fun2("ABDISUHC"));
-            Console.WriteLine(Fun3("asdjokasdjasoksdas"));
+            Console.WriteLine(Fun3("aookka"));
         }
         static string Fun3(string s)
         {
-            return s.Replace("ok", "");
+            StringBuilder sb = new();
+            int l = s.Length;
+            int k = 0;
+            foreach(char c in s)
+            {
+                if(c == 'o')
+                {
+                    k++;
+                } else if(c == 'k')
+                {
+                    if(k > 0)
+                    {
+                        k--;
+                    } else
+                    {
+                        sb.Append(c);
+                    }
+                }
+                else
+                {
+                    sb.Append(c);
+                    k = 0;
+                }
+            }
+            while (k > 0) sb.Append('o');
+            return sb.ToString();
         }
         static string Fun2(string s)
         {
